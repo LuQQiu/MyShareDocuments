@@ -1,5 +1,7 @@
 # Build the AMI
+Refer to the following link to set up img creator.
 https://github.com/TachyonNexus/golluxio/blob/master/img-creator/README.md
+
 In `golluxio/img-creator`, run the following command to build the new AMI and launch test instance
 ```
 bin/img-creator packer build --launchTestInstance

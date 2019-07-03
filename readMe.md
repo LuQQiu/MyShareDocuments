@@ -36,7 +36,7 @@ change `/opt/presto/etc/jvm.config`
 
 4. restart all the things and mount the S3 data set
 ```bash
-alluxio fs mount --option aws.accessKeyId=**** --option aws.secretKey=*** /s3 s3a://autobots-tpcds-test-data/parquet/scale100
+alluxio fs mount --readonly --option aws.accessKeyId=**** --option aws.secretKey=*** /s3 s3a://autobots-tpcds-test-data/parquet/scale100
 ```
 
 5. put a small table `promotion` in the Alluxio with path

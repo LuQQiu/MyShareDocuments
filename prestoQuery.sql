@@ -1,3 +1,5 @@
+use alluxio;
+
 with ssr as
 (select  ss_store_sk as store_sk,
      sum(ss_ext_sales_price) as sales,

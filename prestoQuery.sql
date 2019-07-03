@@ -8,7 +8,7 @@ with ssr as
  from store_sales left outer join store_returns on
      (ss_item_sk = sr_item_sk and ss_ticket_number = sr_ticket_number)
      , promotion
- where p_channel_tv = 'N'    
+ where ss_promo_sk = p_promo_sk
  group by ss_store_sk),
 wsr as
 (select  ws_web_site_sk as website_sk,
@@ -18,7 +18,7 @@ wsr as
  from web_sales left outer join web_returns on
      (ws_item_sk = wr_item_sk and ws_order_number = wr_order_number)
      , promotion
- where p_channel_tv = 'N'        
+ where ws_promo_sk = p_promo_sk
  group by ws_web_site_sk)
  select channel, sk, sum(sales) as sales, sum(returns) as returns, sum(profit) as profit
  from (select 'store channel' as channel, store_sk as sk, sales, returns, profit from ssr

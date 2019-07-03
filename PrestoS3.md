@@ -48,9 +48,27 @@ hive.s3.aws-access-key=***
 hive.s3.aws-secret-key=****
 ```
 
-and then restart all these services to pick up changes
+## restart all these services to pick up changes
+```
 sudo systemctl restart hadoop
 sudo systemctl restart hcat
 sudo systemctl restart presto
+```
+
+# Create hive tables with S3 data
+```
+hive -f createS3DirectTables.sql
+```
+
+# Create hive tables with Alluxio data
+```
+alluxio fs mount --readonly --option aws.accessKeyId=**** --option aws.secretKey=*** /s3 s3a://autobots-tpcds-test-data/parquet/scale100
+hive -f createAlluxioS3Tables.sql
+```
+
+# Run presto queries
+Use `presto --server localhost:8080 --catalog hive --debug` to trigger presto CLI.
+Use `use alluxio;` or `use s3;` to choose different schema.
+and then run your favorite queries!
 
 

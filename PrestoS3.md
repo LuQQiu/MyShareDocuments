@@ -6,8 +6,9 @@ In `golluxio/img-creator`, run the following command to build the new AMI and la
 ```
 bin/img-creator packer build --launchTestInstance
 ```
+It will first build a `packer-build` instance to build the AMI, and then use the new AMI to launch a actual test instance.
 
-After it finished, log in to the new instance
+After it finished, log in to the new test instance
 
 # Support Presto on S3 workflow
 By default, the instance support presto on Alluxio workflow.

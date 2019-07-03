@@ -4,8 +4,11 @@
 `alluxio.user.block.size.bytes.default=128MB`
 
 2. change hive configuraion
+```
 cp /opt/hive/conf/hive-env.sh.template hive-env.sh
 /opt/hive/conf/hive-env.sh
+```
+
 comment out the following lines
 ```
  if [ "$SERVICE" = "cli" ]; then
